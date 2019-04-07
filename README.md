@@ -8,8 +8,8 @@ This project was built for AthenaHacks 2019 by Maddie Louis (Computer Science), 
 
 
 
-Features: A virtual dog that you can name, feed, and watch grow; a meal and water tracker
+Features: A virtual dog that you can name and give food and water, a meal and water tracker
 
 
 Future Goals:
-The ability to choose from different breeds of dogs, more stages of dog growth, an exercise tracker 
+The ability to choose from different breeds of dogs, implement stages of dog growth, an exercise tracker 
