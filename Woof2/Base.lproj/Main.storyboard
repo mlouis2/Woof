@@ -38,7 +38,7 @@
                                     <action selector="hydrateCurrentDog:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NYb-J8-VfN"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Buster" borderStyle="roundedRect" placeholder="Dog's Name" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="N0e-L1-4MT">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Buster" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="N0e-L1-4MT">
                                 <rect key="frame" x="103" y="113" width="168" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>

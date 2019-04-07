@@ -213,5 +213,5 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         updateHappiness()
         foodBar.progress = Float(Double(dog.getFood()) / 100.0)
     }
-
+    
 }
