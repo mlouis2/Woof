@@ -7,6 +7,16 @@
 //
 
 import UIKit
+import SwiftGifOrigin
+
+extension UIImage {
+    public class func gif(asset: String) -> UIImage? {
+        if let asset = NSDataAsset(name: asset) {
+            return UIImage.gif(data: asset.data)
+        }
+        return nil
+    }
+}
 
 class Dog {
     
@@ -105,7 +115,7 @@ class Dog {
         self.isHappy = false
     }
     func makeHappy(sender: UIImageView) {
-        sender.image = UIImage(named: "dog")
+        sender.image = UIImage.gif(asset: "happyDog")
         self.isHappy = true
     }
     
@@ -130,12 +140,22 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dog.makeHappy(sender: dogImage)
         assignBackground()
         foodBar.progress = Float((Double(dog.getFood()) / 100.0))
         waterBar.progress = Float((Double(dog.getWater()) / 100.0))
         startTimer()
         dogNameField.delegate = self
     }
+    
+    @IBAction func openHealthMenu(_ sender: Any) {
+        let healthMenu = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HealthMenuViewController") as! HealthMenuViewController
+        self.addChild(healthMenu)
+        healthMenu.view.frame = self.view.frame
+        self.view.addSubview(healthMenu.view)
+        healthMenu.didMove(toParent: self)
+    }
+    
     
     //Thanks StackOverFlow!
     func assignBackground() {

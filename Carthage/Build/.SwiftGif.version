@@ -1,0 +1,19 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "v1.7.0",
+  "iOS" : [
+    {
+      "name" : "SwiftGif",
+      "hash" : "955d49bf7fe4f12e42aff502d998553f83cfd7dcc3ba619b2851632bd0ba8228",
+      "swiftToolchainVersion" : "4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
+    }
+  ]
+}

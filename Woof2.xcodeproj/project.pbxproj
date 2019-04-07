@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92933A80CC8659CD80C35F21 /* Pods_Woof2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8699286DE03305D77D0A8615 /* Pods_Woof2.framework */; };
+		C9517F872259EA94000D15C4 /* HealthMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9517F862259EA94000D15C4 /* HealthMenuViewController.swift */; };
 		E6D73A4B2259795800C3F7B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D73A4A2259795800C3F7B4 /* AppDelegate.swift */; };
 		E6D73A4D2259795800C3F7B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D73A4C2259795800C3F7B4 /* ViewController.swift */; };
 		E6D73A502259795800C3F7B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D73A4E2259795800C3F7B4 /* Main.storyboard */; };
@@ -16,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8699286DE03305D77D0A8615 /* Pods_Woof2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Woof2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDB45A2FAD17E9A0F7370D30 /* Pods-Woof2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Woof2.release.xcconfig"; path = "Target Support Files/Pods-Woof2/Pods-Woof2.release.xcconfig"; sourceTree = "<group>"; };
+		C9517F862259EA94000D15C4 /* HealthMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMenuViewController.swift; sourceTree = "<group>"; };
 		E6D73A472259795800C3F7B4 /* Woof2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woof2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D73A4A2259795800C3F7B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6D73A4C2259795800C3F7B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +29,7 @@
 		E6D73A542259795A00C3F7B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E6D73A562259795A00C3F7B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6D73A5C225979B100C3F7B4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F401C0822532F3BC702E2B33 /* Pods-Woof2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Woof2.debug.xcconfig"; path = "Target Support Files/Pods-Woof2/Pods-Woof2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92933A80CC8659CD80C35F21 /* Pods_Woof2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2280977ACCE28810D085F321 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8699286DE03305D77D0A8615 /* Pods_Woof2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		342A0E829B3652A1E8ACFA90 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F401C0822532F3BC702E2B33 /* Pods-Woof2.debug.xcconfig */,
+				BDB45A2FAD17E9A0F7370D30 /* Pods-Woof2.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E6D73A3E2259795800C3F7B4 = {
 			isa = PBXGroup;
 			children = (
 				E6D73A492259795800C3F7B4 /* Woof2 */,
 				E6D73A482259795800C3F7B4 /* Products */,
+				342A0E829B3652A1E8ACFA90 /* Pods */,
+				2280977ACCE28810D085F321 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +86,7 @@
 				E6D73A4C2259795800C3F7B4 /* ViewController.swift */,
 				E6D73A5C225979B100C3F7B4 /* MainViewController.swift */,
 				E6D73A4E2259795800C3F7B4 /* Main.storyboard */,
+				C9517F862259EA94000D15C4 /* HealthMenuViewController.swift */,
 				E6D73A512259795A00C3F7B4 /* Assets.xcassets */,
 				E6D73A532259795A00C3F7B4 /* LaunchScreen.storyboard */,
 				E6D73A562259795A00C3F7B4 /* Info.plist */,
@@ -74,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E6D73A592259795A00C3F7B4 /* Build configuration list for PBXNativeTarget "Woof2" */;
 			buildPhases = (
+				15B23E7FA282D291355851AE /* [CP] Check Pods Manifest.lock */,
 				E6D73A432259795800C3F7B4 /* Sources */,
 				E6D73A442259795800C3F7B4 /* Frameworks */,
 				E6D73A452259795800C3F7B4 /* Resources */,
+				6B2943DC8ECC93B77993AEB8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,6 +162,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		15B23E7FA282D291355851AE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Woof2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B2943DC8ECC93B77993AEB8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Woof2/Pods-Woof2-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftGifOrigin/SwiftGifOrigin.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftGifOrigin.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Woof2/Pods-Woof2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E6D73A432259795800C3F7B4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -141,6 +217,7 @@
 				E6D73A5D225979B100C3F7B4 /* MainViewController.swift in Sources */,
 				E6D73A4D2259795800C3F7B4 /* ViewController.swift in Sources */,
 				E6D73A4B2259795800C3F7B4 /* AppDelegate.swift in Sources */,
+				C9517F872259EA94000D15C4 /* HealthMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +361,7 @@
 		};
 		E6D73A5A2259795A00C3F7B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F401C0822532F3BC702E2B33 /* Pods-Woof2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -301,6 +379,7 @@
 		};
 		E6D73A5B2259795A00C3F7B4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDB45A2FAD17E9A0F7370D30 /* Pods-Woof2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -60,6 +60,14 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="progressTintColor" red="0.29019607843137252" green="0.54509803921568623" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvX-Er-CgS">
+                                <rect key="frame" x="313" y="64" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Health"/>
+                                <connections>
+                                    <action selector="openHealthMenu:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DFk-1z-FVe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -77,6 +85,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1108" y="26.53673163418291"/>
+        </scene>
+        <!--Health Menu View Controller-->
+        <scene sceneID="uSd-14-Kdc">
+            <objects>
+                <viewController restorationIdentifier="HealthMenuViewController" storyboardIdentifier="HealthMenuViewController" id="iys-K3-G6i" customClass="HealthMenuViewController" customModule="Woof2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Zh-wf-DQQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XFc-Eg-iaL">
+                                <rect key="frame" x="39" y="53" width="296" height="561"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S09-Yd-3RT">
+                                        <rect key="frame" x="258" y="8" width="30" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="X">
+                                            <color key="titleColor" red="0.34109338384983495" green="0.4905801223578331" blue="0.73350469559585485" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeHealthMenu:" destination="iys-K3-G6i" eventType="touchUpInside" id="MIj-25-3ZD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.34783978720764896" green="0.76574473174589242" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="rBR-al-pbL"/>
+                    </view>
+                    <connections>
+                        <outlet property="healthMenu" destination="XFc-Eg-iaL" id="End-Fj-GiD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4iS-Kg-fBd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1957.5999999999999" y="216.34182908545728"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YoG-7Q-Qvb">
@@ -98,8 +144,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="dog" width="384" height="288"/>
-        <image name="emptyFoodBowl" width="384" height="288"/>
-        <image name="emptyWaterBowl" width="384" height="288"/>
+        <image name="dog" width="1600" height="1200"/>
+        <image name="emptyFoodBowl" width="1600" height="1200"/>
+        <image name="emptyWaterBowl" width="1600" height="1200"/>
     </resources>
 </document>
