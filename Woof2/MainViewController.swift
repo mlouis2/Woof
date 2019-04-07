@@ -22,12 +22,10 @@ class Dog {
     
     private var food: Int
     private var water: Int
-    private var isHappy: Bool
     
-    init(food: Int, water: Int, isHappy: Bool) {
+    init(food: Int, water: Int) {
         self.food = food
         self.water = water
-        self.isHappy = isHappy
     }
     
     @objc func hydrate(_ sender: UIButton, waterBowlLevel: Int) -> Int {
@@ -54,36 +52,28 @@ class Dog {
        return self.water
     }
     
-    func getIsHappy() -> Bool {
-        return self.isHappy
-    }
-    
-    func decrementFood(sender: UIButton) {
-        if (self.food > 0) {
-            self.food -= 10
+    func decrementFood(sender: UIButton, amount: Int) {
+        if (self.food - amount < 0) {
+            self.food = 0
+        } else {
+            self.food -= amount
         }
     }
-    func decrementWater(sender: UIButton) {
-        if (self.water > 0) {
-            self.water -= 10
+    func decrementWater(sender: UIButton, amount: Int) {
+        if (self.water - amount < 0) {
+            self.water = 0
+        } else {
+            self.water -= amount
         }
     }
-    func decrementWaterBowl(_ sender: UIButton, waterBowlLevel: Int) {
-        if (waterBowlLevel == 3) {
-            sender.setImage(UIImage(named: "mediumWaterBowl"), for: UIControl.State.normal)
-        } else if (waterBowlLevel == 2) {
-            sender.setImage(UIImage(named: "smallWaterBowl"), for: UIControl.State.normal)
-        } else if (waterBowlLevel == 1) {
+    func emptyWaterBowl(_ sender: UIButton, waterBowlLevel: Int) {
+        if (waterBowlLevel != 0) {
           sender.setImage(UIImage(named: "emptyWaterBowl"), for: UIControl.State.normal)
         }
     }
-    func decrementFoodBowl(_ sender: UIButton, foodBowlLevel: Int) {
-        if (foodBowlLevel == 3) {
-            sender.setImage(UIImage(named: "mediumFoodBowl"), for: UIControl.State.normal)
-        } else if (foodBowlLevel == 2) {
-            sender.setImage(UIImage(named: "smallFoodBowl"), for: UIControl.State.normal)
-        } else if (foodBowlLevel == 1) {
-          sender.setImage(UIImage(named: "emptyFoodBowl"), for: UIControl.State.normal)
+    func emptyFoodBowl(_ sender: UIButton, foodBowlLevel: Int) {
+        if (foodBowlLevel != 0) {
+           sender.setImage(UIImage(named: "emptyFoodBowl"), for: UIControl.State.normal)
         }
     }
     func fillWaterBowl(_ sender: UIButton, waterBowlLevel: Int) {
@@ -111,12 +101,13 @@ class Dog {
         }
     }
     func makeSad(sender: UIImageView) {
-        sender.image = UIImage(named: "saddog")
-        self.isHappy = false
+        sender.image = UIImage.gif(asset: "sadDog")
+    }
+    func makeMegaSad(sender: UIImageView) {
+        sender.image = UIImage.gif(asset: "extraSadDog")
     }
     func makeHappy(sender: UIImageView) {
         sender.image = UIImage.gif(asset: "happyDog")
-        self.isHappy = true
     }
     
 }
@@ -126,6 +117,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var foodBowlButton: UIButton!
     @IBOutlet weak var waterBowlButton: UIButton!
+    @IBOutlet weak var nextDayButton: UIButton!
     @IBOutlet weak var dogImage: UIImageView!
     @IBOutlet weak var dogNameField: UITextField!
     @IBOutlet weak var foodBar: UIProgressView!
@@ -134,9 +126,9 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     var waterBowlLevel = 0
     var foodBowlLevel = 0
-    var timer: Timer?
+    var dayCount = 0
     
-    let dog = Dog(food: 70, water: 70, isHappy: true)
+    let dog = Dog(food: 70, water: 70)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -144,7 +136,6 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         assignBackground()
         foodBar.progress = Float((Double(dog.getFood()) / 100.0))
         waterBar.progress = Float((Double(dog.getWater()) / 100.0))
-        startTimer()
         dogNameField.delegate = self
     }
     
@@ -155,7 +146,6 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         self.view.addSubview(healthMenu.view)
         healthMenu.didMove(toParent: self)
     }
-    
     
     //Thanks StackOverFlow!
     func assignBackground() {
@@ -175,62 +165,60 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         dogNameField.resignFirstResponder()
     }
     
+    
+    @IBAction func incrementDay(_ sender: Any) {
+        dayCount += 1
+        if (foodBowlLevel < 3) {
+            if (foodBowlLevel == 0) {
+                foodBar.progress -= 0.5
+                dog.decrementFood(sender: foodBowlButton, amount: 50)
+            } else if (foodBowlLevel == 1) {
+                foodBar.progress -= 0.4
+                dog.decrementFood(sender: foodBowlButton, amount: 40)
+            } else {
+                foodBar.progress -= 0.2
+                dog.decrementFood(sender: foodBowlButton, amount: 20)
+            }
+        }
+        if (waterBowlLevel < 3) {
+            if (waterBowlLevel == 0) {
+                waterBar.progress -= 0.5
+                dog.decrementWater(sender: waterBowlButton, amount: 50)
+            } else if (waterBowlLevel == 1) {
+                waterBar.progress -= 0.4
+                dog.decrementWater(sender: waterBowlButton, amount: 40)
+            } else {
+                waterBar.progress -= 0.2
+                dog.decrementWater(sender: waterBowlButton, amount: 20)
+            }
+        }
+        dog.emptyFoodBowl(foodBowlButton, foodBowlLevel: foodBowlLevel)
+        dog.emptyWaterBowl(waterBowlButton, waterBowlLevel: waterBowlLevel)
+        foodBowlLevel = 0
+        waterBowlLevel = 0
+        updateStatus()
+    }
+    
     @objc func updateStatus() {
-        updateBowls()
-        updateHappiness()
-    }
-    
-    @objc func updateBowls() {
-        if (foodBowlLevel > 0) {
-            dog.decrementFoodBowl(foodBowlButton, foodBowlLevel: foodBowlLevel)
-            foodBowlLevel -= 1
-        } else {
-            dog.decrementFood(sender: foodBowlButton)
-        }
-        
-        if (waterBowlLevel > 0) {
-            dog.decrementWaterBowl(waterBowlButton, waterBowlLevel: waterBowlLevel)
-            waterBowlLevel -= 1
-        } else {
-            dog.decrementWater(sender: waterBowlButton)
-        }
-        foodBar.progress = Float(Double(dog.getFood()) / 100.0)
-        waterBar.progress = Float(Double(dog.getWater()) / 100.0)
-    }
-    
-    @objc func updateHappiness() {
-        if ((dog.getFood() < 50 || dog.getWater() < 50) && dog.getIsHappy()) {
+        let smallerOfFoodAndWater = min(dog.getWater(), dog.getFood())
+        print("smaller of food and water is " + String(smallerOfFoodAndWater))
+        if ((0 <= smallerOfFoodAndWater) && smallerOfFoodAndWater <= 40) {
+            dog.makeMegaSad(sender: dogImage)
+        } else if ((41 <= smallerOfFoodAndWater) && smallerOfFoodAndWater < 70) {
             dog.makeSad(sender: dogImage)
-        }
-        
-        if ((dog.getFood() >= 50 && dog.getWater() >= 50) && !dog.getIsHappy()) {
+        } else {
             dog.makeHappy(sender: dogImage)
         }
     }
     
-    func resetTimer() {
-        timer?.invalidate()
-        startTimer()
-    }
-    
-    func startTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(updateStatus), userInfo: nil, repeats: true);
-    }
-    
     @IBAction func hydrateCurrentDog(_ sender: Any) {
-        if (waterBowlLevel == 0) {
-            resetTimer()
-        }
         waterBowlLevel = dog.hydrate(waterBowlButton, waterBowlLevel: waterBowlLevel)
-        updateHappiness()
+        updateStatus()
         waterBar.progress = Float(Double(dog.getWater()) / 100.0)
     }
     @IBAction func feedCurrentDog(_ sender: Any) {
-        if (foodBowlLevel == 0) {
-            resetTimer()
-        }
         foodBowlLevel = dog.feed(foodBowlButton, foodBowlLevel: foodBowlLevel)
-        updateHappiness()
+        updateStatus()
         foodBar.progress = Float(Double(dog.getFood()) / 100.0)
     }
     

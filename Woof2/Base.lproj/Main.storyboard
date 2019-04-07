@@ -38,16 +38,6 @@
                                     <action selector="hydrateCurrentDog:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NYb-J8-VfN"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Buster" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="N0e-L1-4MT">
-                                <rect key="frame" x="103" y="113" width="168" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="name"/>
-                                <connections>
-                                    <action selector="endOnDone:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="fce-B9-Eiu"/>
-                                </connections>
-                            </textField>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jK3-0P-GLE" userLabel="FoodBar">
                                 <rect key="frame" x="39" y="620" width="130" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -60,14 +50,37 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="progressTintColor" red="0.29019607843137252" green="0.54509803921568623" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </progressView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvX-Er-CgS">
-                                <rect key="frame" x="313" y="64" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvX-Er-CgS">
+                                <rect key="frame" x="0.0" y="64" width="65" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Health"/>
+                                <state key="normal" title="Health" image="healthIcon"/>
                                 <connections>
                                     <action selector="openHealthMenu:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DFk-1z-FVe"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAr-fn-OHY">
+                                <rect key="frame" x="271" y="70" width="98" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.53590973984771573" green="0.35345152187498163" blue="0.075705466085402295" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <state key="normal" title="Next Day">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="incrementDay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="miG-BD-gcV"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Buster" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="N0e-L1-4MT">
+                                <rect key="frame" x="103" y="138" width="168" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.90389554794520544" blue="0.74574593321917804" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.2901960784" green="0.5450980392" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="name"/>
+                                <connections>
+                                    <action selector="endOnDone:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="fce-B9-Eiu"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -78,6 +91,7 @@
                         <outlet property="dogNameField" destination="N0e-L1-4MT" id="shE-GL-9jW"/>
                         <outlet property="foodBar" destination="jK3-0P-GLE" id="Hrj-E4-IDW"/>
                         <outlet property="foodBowlButton" destination="ujt-HG-uv0" id="g7G-8S-Kze"/>
+                        <outlet property="nextDayButton" destination="YAr-fn-OHY" id="Ak6-HB-vBy"/>
                         <outlet property="waterBar" destination="YMu-jI-Jrm" id="7U9-3X-4uW"/>
                         <outlet property="waterBowlButton" destination="Str-RK-aN7" id="hfy-wC-LRC"/>
                     </connections>
@@ -95,7 +109,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XFc-Eg-iaL">
-                                <rect key="frame" x="39" y="53" width="296" height="561"/>
+                                <rect key="frame" x="39" y="84" width="296" height="530"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S09-Yd-3RT">
@@ -110,7 +124,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.34783978720764896" green="0.76574473174589242" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.66666666669999997" green="0.7843137255" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -144,8 +158,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="dog" width="1600" height="1200"/>
-        <image name="emptyFoodBowl" width="1600" height="1200"/>
-        <image name="emptyWaterBowl" width="1600" height="1200"/>
+        <image name="dog" width="384" height="288"/>
+        <image name="emptyFoodBowl" width="384" height="288"/>
+        <image name="emptyWaterBowl" width="384" height="288"/>
+        <image name="healthIcon" width="36" height="36"/>
     </resources>
 </document>
