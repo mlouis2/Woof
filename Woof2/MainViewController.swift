@@ -201,10 +201,9 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     @objc func updateStatus() {
         let smallerOfFoodAndWater = min(dog.getWater(), dog.getFood())
-        print("smaller of food and water is " + String(smallerOfFoodAndWater))
-        if ((0 <= smallerOfFoodAndWater) && smallerOfFoodAndWater <= 40) {
+        if ((0 <= smallerOfFoodAndWater) && smallerOfFoodAndWater <= 30) {
             dog.makeMegaSad(sender: dogImage)
-        } else if ((41 <= smallerOfFoodAndWater) && smallerOfFoodAndWater < 70) {
+        } else if ((31 <= smallerOfFoodAndWater) && smallerOfFoodAndWater < 70) {
             dog.makeSad(sender: dogImage)
         } else {
             dog.makeHappy(sender: dogImage)
