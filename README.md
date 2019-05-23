@@ -12,4 +12,4 @@ Features: A virtual dog that you can name and give food and water, a meal and wa
 
 
 Future Goals:
-The ability to choose from different breeds of dogs, implement stages of dog growth, an exercise tracker 
+The ability to choose from different breeds of dogs, implement stages of dog growth, implement an exercise tracker 
